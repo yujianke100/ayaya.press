@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>17歳！</title>
+    <link rel="stylesheet" type="text/css" href="./css/yukari.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="titleinfo">
+            <h1>恭喜！<br>おめでとうございます！</h1>
+            <h2>恭喜你找到了本站的彩蛋</h2>
+            <h3>在这里，我准备了一块留言板，一个小视频，顺便还留下了一个神奇的按钮。。。</h3>
+            <iframe class="video" src="//player.bilibili.com/player.html?aid=18982997&cid=30960416&page=1" scrolling="no"
+                border="0" frameborder="yes" framespacing="0" allowfullscreen="true"> </iframe>
+            <button class="yukari" id="yukari">
+                <p style="font-size:15px;font-weight: 700">神奇的按钮。</p>
+                <p>按之前先检查一下身后，否则键盘坏了别怪我<br>嘿嘿嘿……</p>
+            </button>
+            <div class="yp" id="yp">
+                <img src="../img/yukari.jpg" alt="">
+                <p>id：41709247</p>
+            </div>
+        </div>
+        <div id="post" class="infobox">
+            <h3>留言板（本人表示不知道自己的服务器和这个页面能撑得住几楼）</h3>
+            <p>昵称</p>
+            <p><input type="text" class="input" id="user" /></p>
+            <p>邮箱（非必填）</p>
+            <p><input type="text" class="input" id="email" /></p>
+            <p>留言内容：</p>
+            <p><textarea class="input" id="txt" style="width:100%; height:80px"></textarea></p>
+            <p><input type="submit" class='btn' value="发表" id="add" /></p>
+        </div>
+        <div id="comments"></div>
+    </div>
+    <button class="back_to_top">返回顶部</button>
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var backButton = $('.back_to_top');
+            function backToTop() {
+                $('html,body').animate({
+                    scrollTop: 0
+                }, 800);
+            }
+            backButton.on('click', backToTop);
+            $("#yukari").click(function () {
+                $("#yp").slideToggle(1000);
+            });
+            $(window).on('scroll', function () {/*当滚动条的垂直位置大于浏览器所能看到的页面的那部分的高度时，回到顶部按钮就显示 */
+                if ($(window).scrollTop() > $(window).height())
+                    backButton.fadeIn();
+                else
+                    backButton.fadeOut();
+            });
+            $(window).trigger('scroll');/*触发滚动事件，避免刷新的时候显示回到顶部按钮*/
+
+            var comments = $("#comments");
+            $.getJSON("data.php", function (json) {
+                $.each(json, function (index, array) {
+                    if (array["email"] == '') {
+                        var txt = "<p class='msgbox' style='display:none'>第" + array["id"] + "楼<br><br><strong>" + array["user"] + "：<br></strong>" + array["comment"] + "<br><br><span class='timebox'>" + array["addtime"] + "</span></p>";
+                    } else {
+                        var txt = "<p class='msgbox' style='display:none'>第" + array["id"] + "楼<br><br><strong>" + array["user"] + "(" + array["email"] + ")：<br></strong>" + array["comment"] + "<br><br><span class='timebox'>" + array["addtime"] + "</span></p>";
+                    }
+
+                    comments.prepend(txt);
+                    $(".msgbox").slideDown(600);
+                });
+            });
+            //将评论的内容展出
+            $("#add").click(function () {
+                var user = $("#user").val();
+                var email = $("#email").val();
+                var txt = $("#txt").val();
+                $.ajax({
+                    type: "POST",
+                    url: "comment.php",
+                    data: "user=" + user + "&email=" + email + "&txt=" + txt,
+                    dataType: 'JSON',
+                    success: function (res) {
+                        if (res.code == 1) {
+                            if (res.email == '') {
+                                var str = "<p class='msgbox' style='display:none'>刚刚：<br><br><strong>" + res.user + "：<br></strong>" + res.txt + "</span></p>";
+                            }
+                            else {
+                                var str = "<p class='msgbox' style='display:none'>刚刚：<br><br><strong>" + res.user + "(" + res.email + ")：<br></strong>" + res.txt + "</span></p>";
+                            }
+                            comments.prepend(str);
+                            $(".msgbox").slideDown(600);
+                            // alert("发布成功");
+                            $("#txt").val("");
+                            $("#user").val("");
+                            $("#email").val("");
+                        } else {
+                            alert(res.message);
+                            // $("#message").show().html(res.message).fadeOut(1000);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta name="baidu-site-verification" content="ahNJE5uPn3" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>来自东方的神秘力量</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 705px)" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 704px)" href="./css/m_style.css" />
+</head>
+
+<body style="overflow-x:hidden;" class="PMain">
+    <div id="background-box">
+        <div class="background index-background" id="background"></div>
+    </div>
+    <header>
+        <ul class="menuUl" id="menuUl">
+            <li class="button_click pagebutton" attr-id="index">主页</li>
+            <li class="button_click pagebutton" attr-id="download">资源下载</li>
+            <li class="button_click pagebutton" attr-id="data">学习资料</li>
+            <li>
+                <a class="button_click" class="boku" id="boku" target="blank" title="点击Q我" href="http://wpa.qq.com/msgrd?v=3&uin=734962820&site=qq&menu=yes">关于本站</a>
+            </li>
+        </ul>
+        <ul class="msg" id="msg">
+            <li>鄙人ID：登山学日文</li>
+            <li>自称老绅士</li>
+            <li>浙商大信电学院学子</li>
+            <p class="guest-info" id="count"></p>
+            <p class="guest-info" id="your-count"></p>
+            <p class="guest-info" id="your-ip"></p>
+        </ul>
+    </header>
+    <div style="height:70px"></div>
+    <div class="Head">
+        <h1>
+            <div>僕たちの幻想郷へようこそ！</div>
+            <div>欢迎来到我们的幻想乡！</div>
+            <h1>
+    </div>
+    <article class="rgba" id="rgba">
+        <div class="content_text">
+            <p>组织：来自东方的神秘力量</p>
+            <p>坐标：浙江工商大学</p>
+            <p>性质：学术交流小组</p>
+            <p>成员：顶点动漫社社员、浙商大日协社员以及其他东方、中日文化爱好者</p>
+            <p>目标：以东方project为载体，进行ACGN文化和中日文化方面的交流、学习</p>
+            <img src="./img/qq.png" alt="群二维码" width="120px">
+            <p class="qh">群号：834651900<br>其实是死群一个</p>
+            <p class="jr">期待您的加入</p>
+            <p class="wg">PS:这里还有一份问卷，如果可以的话，各位善良的东方众们填一下呗。</p>
+            <a target="blank" style="text-decoration:underline" href="https://wj.qq.com/s/2902282/ae6f/">问卷链接</a>
+            <a target="blank" style="text-decoration:underline" href="https://wj.qq.com/stat/overview.html?sid=2902282">统计结果在这里！</a>
+            <input id="qbtn" class="qbtn" type="button" value="直接在此填写">
+            <br>
+            <iframe id="questions" class="questions" style="display:none" height="1200" width="800" src="https://wj.qq.com/s/2902282/ae6f/" frameborder="0"
+                allowfullscreen></iframe>
+        </div>
+        <article class="blur_box"></article>
+    </article>
+    <footer>
+        <div class="p-m" id="p-m">
+            <p id="bgid">背景id=29380896</p>
+            <p>BGM:来夢緑 - ネクロファンタジア</p>
+        </div>
+        <div id="BGM-BOX">
+            <audio class="BGM" autoplay="autoplay" src="BGM/index.mp3" type="audio/ogg" loop="loop" controls="controls">来夢緑-
+                ネクロファンタジア</audio>
+        </div>
+    </footer>
+    <!-- //<script type="text/javascript">
+        //var count="<?php echo $count ?>";
+        //var myvisits="<?php echo $yourcount ?>";
+        //count.innerHTML="本站已被访问"+count+"次";
+        //yourcount.innerHTML="这是您第"+myvisits+"次访问";
+    //</script> -->
+
+    <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+    <script src="js/pageinfo.js"></script>
+    <script src="js/main_script.js"></script>
+    <!-- <script src="js/index_script.js"></script> -->
+
+    <script type="text/javascript" src="./tmp_index.php"></script>
+    <script type="text/javascript">
+        var count = document.getElementById("count");
+        var yourcount = document.getElementById("your-count");
+        var yourip = document.getElementById("your-ip");
+        count.innerHTML = "本站已被访问" + count_num + "次";
+        yourcount.innerHTML = "这是您的第" + yourcount_num + "次访问";
+        yourip.innerHTML = "您的IP：" + ip_num;
+    </script>
+    <script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+</body>
+
+</html>
