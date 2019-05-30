@@ -28,6 +28,7 @@ var html = {
     <h3>工具</h3>
     <ul>
         <li><a target="_blank" href="download/setupvpn.crx">chrome专用梯子</a></li>
+        <li><a target="_blank" href="download/谷歌服务助手_v1.18.11.13.crx">chrome用谷歌服务助手</a></li>
         <li><a target="_blank" href="http://pandownload.com/">Pan Download</a></li>
     </ul>
     </div>
@@ -63,6 +64,9 @@ var html = {
         </li>
         <li>
             <a target="_blank" href="http://dynasty.cc/han/book/book/genji.html">《源氏物語》（丰子恺译）</a>
+        </li>
+        <li>
+            <a target="_blank" href="../download/[book]02784.pdf">《古事记》（周作人译，简体中文，PDF）</a>
         </li>
     </ul>
     <div class="blank"></div>
@@ -114,7 +118,7 @@ var background={
     data:`<div class="background data-background" id="background"></div>`
 }
 var backgroundmusic={
-    index:`<audio class="BGM" autoplay="autoplay" src="BGM/index.mp3" loop="loop" controls="controls">来夢緑 - ネクロファンタジア</audio>`,
-    download:`<audio class="BGM" autoplay="autoplay" src="BGM/download.mp3" loop="loop" controls="controls">まらしぃ - 故郷の星が映る海</audio>`,
-    data:`<audio class="BGM" autoplay="autoplay" src="/BGM/data.mp3" loop="loop" controls="controls">TAMUSIC - 幽雅に咲かせ、墨染の桜</audio>`
+    index:`<audio class="BGM" src="http://music.163.com/song/media/outer/url?id=774724.mp3" autoplay="autoplay"controls="controls" loop="loop">来夢緑-ネクロファンタジア</audio>`,
+    download:`<audio class="BGM" autoplay="autoplay" src="http://music.163.com/song/media/outer/url?id=458013909.mp3" loop="loop" controls="controls">まらしぃ - 故郷の星が映る海</audio>`,
+    data:`<audio class="BGM" autoplay="autoplay" src="http://music.163.com/song/media/outer/url?id=849691.mp3" loop="loop" controls="controls">TAMUSIC - 幽雅に咲かせ、墨染の桜</audio>`
 }
